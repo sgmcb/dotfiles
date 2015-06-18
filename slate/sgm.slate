@@ -1,0 +1,70 @@
+# sgm.slate configuration
+
+# CONFIGS
+config defaultToCurrentScreen true
+
+# ALIASES
+alias hyper ctrl,alt,shift,cmd
+alias screenXHalf (screenSizeX/2)
+alias screenX13	  (screenSizeX/3)
+alias screenX23	  (screenSizeX*2/3)
+
+
+#alias iTunesMiniPlayerSet screenOriginX+3;screenOriginY+976 305;48
+
+# LAYOUTS
+
+	## iTunes Mini Placement
+	#layout iTunesMiniPut 'iTunes' TITLE_ORDER='MiniPlayer';'iTunes' move:(screenOriginX);(screenOriginY)
+	layout iTunesMiniPut 'iTunes' push down
+
+
+# BINDINGS
+
+	## Show/hide hidden files
+	bind 0:${hyper} shell path:~/ 'killall Finder'
+
+	## Current screen throws (IJKL and UP-DOWN-LEFFT-RIGHT for full-screen, halves, and hide)
+	
+	## J and Left-arrow to left-half
+	bind left:${hyper} corner top-left resize:${screenXHalf};screenSizeY
+	bind j:${hyper} corner top-left resize:${screenXHalf};screenSizeY
+
+	## L and Right-arrow to right-half
+	bind right:${hyper} corner top-right resize:${screenXHalf};screenSizeY
+	bind l:${hyper} corner top-right resize:${screenXHalf};screenSizeY
+
+	## I and Up-arrow to full-screen
+	bind up:${hyper} corner top-left resize:screenSizeX;screenSizeY
+	bind i:${hyper} corner top-left resize:screenSizeX;screenSizeY
+
+	## DISABLE THE k-bound HIDE COMMAND
+	##bind down:${hyper} hide 'current'
+	##bind k:${hyper} hide 'current'
+
+	## 1/3-screen throws throws
+	bind j:${hyper},1 corner top-left resize:${screenX13};screenSizeY
+	bind j:${hyper},3 corner top-left resize:${screenX23};screenSizeY
+
+	bind l:${hyper},1 corner top-right resize:${screenX13};screenSizeY
+	bind l:${hyper},3 corner top-right resize:${screenX23};screenSizeY
+
+
+	## Across-screen throws (to full-screen)
+	bind u:${hyper} move screenOriginX;screenOriginY screenSizeX;screenSizeY left
+	bind o:${hyper} move screenOriginX;screenOriginY screenSizeX;screenSizeY right
+
+
+	## Place the iTunes Mini-player
+	## bind ]:${hyper} layout iTunesMiniPut
+	
+
+
+	## Application control
+	bind f:${hyper} focus 'Firefox'
+	
+	## Slack controls
+	#bind s:${hyper} focus 'Slack'
+	#bind a:${hyper} hide 'Slack'
+
+

@@ -1,0 +1,6 @@
+# This script (somewhat crudely) establishes symlinks that we need for our dotfiles
+# For now, this assumes that your dotfiles folder lives at ~/.dotfiles (because I'm lazy)
+
+# SLATE
+# destination  is ~/.slate
+ln ~/.dotfiles/slate/sgm.slate ~/.slate
